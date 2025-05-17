@@ -1,10 +1,8 @@
-
 import { useState } from "react";
 import { Send, Mail, MapPin, Phone, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -24,15 +22,22 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    const response = await fetch("https://formspree.io/f/mdkgbwaj", {
+      method: "POST",
+      headers: {
+        Accept: "application/json"
+      },
+      body: new FormData(e.target as HTMLFormElement)
+    });
+
+    if (response.ok) {
       toast({
         title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        description: "Thanks for reaching out. I'll get back to you soon."
       });
       setFormData({
         name: "",
@@ -40,57 +45,64 @@ const Contact = () => {
         subject: "",
         message: ""
       });
-      setIsSubmitting(false);
-    }, 1500);
+    } else {
+      toast({
+        title: "Something went wrong!",
+        description: "Please try again later.",
+        variant: "destructive"
+      });
+    }
+
+    setIsSubmitting(false);
   };
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container section-container">
         <h2 className="section-title text-center mb-12">Get In Touch</h2>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <h3 className="section-subtitle">Contact Information</h3>
             <p className="text-foreground/80 mb-8">
               Feel free to reach out for job opportunities, collaborations, or just to say hello. I'm always open to discussing new projects and ideas.
             </p>
-            
+
             <div className="space-y-6">
               <ContactItem icon={<Mail />} title="Email">
-                <a href="mailto:murari.komati@example.com" className="hover:text-primary">
-                  murari.komati@example.com
+                <a href="mailto:murarikomati199ds@gmail.com" className="hover:text-primary">
+                  murarikomati199ds@gmail.com
                 </a>
               </ContactItem>
-              
+
               <ContactItem icon={<Phone />} title="Phone">
                 <a href="tel:+919579345054" className="hover:text-primary">
                   +91-9579345054
                 </a>
               </ContactItem>
-              
+
               <ContactItem icon={<MapPin />} title="Location">
                 Solapur, Maharashtra, India
               </ContactItem>
             </div>
-            
+
             <div className="mt-8">
               <h4 className="font-semibold mb-4">Social Profiles:</h4>
               <div className="flex space-x-4">
                 <SocialButton 
-                  href="https://linkedin.com/in/" 
+                  href="https://www.linkedin.com/in/komati-murari" 
                   icon={<Linkedin size={20} />}
                   label="LinkedIn"
                 />
                 <SocialButton 
-                  href="https://github.com/" 
+                  href="https://github.com/Murarikomati" 
                   icon={<Github size={20} />}
                   label="GitHub"
                 />
               </div>
             </div>
           </div>
-          
+
           <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
             <h3 className="section-subtitle">Send Me a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -108,7 +120,7 @@ const Contact = () => {
                     required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">
                     Your Email
@@ -124,7 +136,7 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium">
                   Subject
@@ -138,7 +150,7 @@ const Contact = () => {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">
                   Message
@@ -153,7 +165,7 @@ const Contact = () => {
                   required
                 />
               </div>
-              
+
               <Button 
                 type="submit" 
                 className="w-full gap-2" 

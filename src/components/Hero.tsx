@@ -41,7 +41,7 @@ const Hero = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="gap-2">
-            <a href="/resume.pdf" download>
+            <a href="/Resume.pdf" download>
               <Download size={18} />
               Download Resume
             </a>

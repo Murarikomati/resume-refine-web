@@ -33,7 +33,7 @@ const Projects = () => {
         "Managed models with Unity Catalog and MLflow, deploying via a serving endpoint"
       ],
       technologies: ["Databricks", "Langchain", "MLflow", "LLM", "Spark", "Azure Data Factory", "Firecrawl", "BeautifulSoup"],
-      imageUrl: "/placeholder.svg"
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_ZyiLIyHGnzwSv4rpaxYAPi5cyrsfOgty2CoAf1Dcst27Bqo5QwL98CCr27RObFNX6eY&usqp=CAU"
     },
     {
       id: "traffic",
@@ -73,7 +73,7 @@ const Projects = () => {
                 className="h-48 bg-muted relative overflow-hidden"
                 style={{
                   backgroundImage: `url(${project.imageUrl})`,
-                  backgroundSize: 'cover',
+                  backgroundSize: "cover",
                   backgroundPosition: 'center'
                 }}
               >

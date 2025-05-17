@@ -19,10 +19,10 @@ const Experience = () => {
   const experiences: JobExperience[] = [
     {
       id: "advania",
-      company: "Advania UK Limited",
+      company: "Data Master Consulting Pvt Ltd",
       title: "Data Engineer-Trainee",
       location: "Solapur, India",
-      period: "April 2024 – August 2024",
+      period: "April 2024 – Present",
       description: "Real-Time Data Orchestration in Azure with Medallion Architecture",
       responsibilities: [
         "Designed and implemented end-to-end ETL pipelines using Azure Data Factory to integrate data from Dataverse, Synapse, and APIs into Azure Data Lake Storage Gen2",
@@ -34,21 +34,21 @@ const Experience = () => {
         "Created comprehensive technical documentation detailing data flows, transformations, and intended business use cases"
       ]
     },
-    {
-      id: "mcdonalds",
-      company: "McDonald's",
-      title: "Data Engineer-Full Time",
-      location: "Solapur, India",
-      period: "October 2024 – December 2024",
-      description: "Real-Time Transaction Analytics in Azure with Medallion Architecture",
-      responsibilities: [
-        "Extracted and integrated data from SAP HANA using Azure Data Factory and Kafka for real-time data processing",
-        "Designed and implemented Medallion Architecture in Databricks, focusing on data quality and governance",
-        "Developed Slowly Changing Dimensions (SCD) Type 1 and Type 2 for historical transaction data management",
-        "Optimized Spark transformations for 100GB+ daily transaction data using Liquid Clusters and Broadcast Joins, achieving 60-70% performance improvement",
-        "Designed and created interactive KPIs and Power BI dashboards from scratch with DAX queries, providing business insights that led to 40% sales margin increase"
-      ]
-    }
+    // {
+    //   id: "mcdonalds",
+    //   company: "McDonald's",
+    //   title: "Data Engineer-Full Time",
+    //   location: "Solapur, India",
+    //   period: "October 2024 – December 2024",
+    //   description: "Real-Time Transaction Analytics in Azure with Medallion Architecture",
+    //   responsibilities: [
+    //     "Extracted and integrated data from SAP HANA using Azure Data Factory and Kafka for real-time data processing",
+    //     "Designed and implemented Medallion Architecture in Databricks, focusing on data quality and governance",
+    //     "Developed Slowly Changing Dimensions (SCD) Type 1 and Type 2 for historical transaction data management",
+    //     "Optimized Spark transformations for 100GB+ daily transaction data using Liquid Clusters and Broadcast Joins, achieving 60-70% performance improvement",
+    //     "Designed and created interactive KPIs and Power BI dashboards from scratch with DAX queries, providing business insights that led to 40% sales margin increase"
+    //   ]
+    // }
   ];
 
   const selectedExperience = experiences.find(exp => exp.id === activeExperience) || experiences[0];
